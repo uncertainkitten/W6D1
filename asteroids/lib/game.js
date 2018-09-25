@@ -1,4 +1,5 @@
 const Asteroid = require('./asteroid.js');
+const Util = require('./utils.js');
 
 function Game()  {
   this.DIM_X = 1000;
@@ -33,7 +34,19 @@ Game.prototype.draw = function(ctx) {
 
 Game.prototype.moveObjects = function() {
   this.asteroids.forEach((asteroid) => {
-    asteroid.move();
+    if (asteroid.pos[0] > this.DIM_X) {
+      asteroid.pos[0] = asteroid.pos[0] - this.DIM_X;
+    } else if (asteroid.pos[0] < 0) {
+      asteroid.pos[0] = asteroid.pos[0] + asteroid.radius;
+      asteroid.vel[0] = -asteroid.vel[0];
+    } if (asteroid.pos[1] > this.DIM_Y) {
+      asteroid.pos[1] = asteroid.pos[1] - this.DIM_Y;
+    } else if (asteroid.pos[1] < 0) {
+      asteroid.pos[1] = asteroid.pos[1] + asteroid.radius;
+      asteroid.vel[1] = -asteroid.vel[1];
+    } else {
+      asteroid.move();
+    }
   });
 };
 

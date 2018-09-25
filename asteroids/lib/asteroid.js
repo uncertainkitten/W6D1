@@ -4,7 +4,7 @@ const MovingObject = require('./moving_object.js');
 function Asteroid(hash) {
   hash.color = "#cccccc";
   hash.radius = 25;
-  hash.vel = Util.randomVec(10);
+  hash.vel = Util.randomVec(5);
   MovingObject.call(this, hash);
 }
 

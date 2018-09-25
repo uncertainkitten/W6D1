@@ -1,16 +1,9 @@
 let Game = require('./game.js');
 
-function GameView() {
+function GameView(ctx) {
   this.game = new Game();
+  this.ctx = ctx;
 }
-
-GameView.prototype.canvas = function() {
-  that = this;
-  document.addEventListener("DOMContentLoaded", function() {
-    const canv = document.getElementById("game-canvas");
-    that.ctx = canv.getContext("2d");
-  });
-};
 
 GameView.prototype.start = function() {
   that = this;

@@ -18,18 +18,15 @@ const mo = new MovingObject(
 );
 const aster = new Asteroid( {pos: [30, 30]});
 const game = new Game();
-const gameView = new GameView();
+
 
 console.log(aster);
 console.log(mo);
 console.log(game);
-console.log(gameView);
 
-// document.addEventListener("DOMContentLoaded", function(){
-gameView.start();
-
-// });
-// game.moveObjects();
-//
-// aster.move();
-// mo.move();
+document.addEventListener("DOMContentLoaded", function(){
+  const canv = document.getElementById("game-canvas");
+  const ctx = canv.getContext("2d");
+  const gameView = new GameView(ctx);
+  gameView.start();
+});
